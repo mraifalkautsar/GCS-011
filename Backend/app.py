@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -6,16 +7,10 @@ from flask_cors import CORS
 import datetime
 
 app = Flask(__name__)
-
-pg_user = input("Enter PostgreSQL username: ")
-pg_password = input("Enter PostgreSQL password: ")
-pg_dbname = input("Enter database name: ")
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{pg_user}:{pg_password}@localhost:5432/{pg_dbname}'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://aksantara:1234@localhost:5432/gcs'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = '40c4ce1b831d5169b78a64af08a240478c99d554748356112dddd809409a7ad9'
 CORS(app)
-
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
@@ -71,5 +66,5 @@ def contact():
     db.session.commit()
     return jsonify({'message': 'Message received successfully'}), 201
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)  # Restarting won't ask for input again
