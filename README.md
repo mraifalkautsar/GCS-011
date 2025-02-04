@@ -12,10 +12,13 @@ Frontend
 4. npm run dev
 5. http://localhost:5173
 
-Setup Database
-1. Terlebih dahulu buat sebuah database dengan nama bebas
-2. Buat sebuah database di user postgresql dengan nama bebas ({nama_database})
-3. psql -U postgres -d {nama_database} -f Database/init.sql
+Setup Database alt.1
+1. Terlebih dahulu buat sebuah user bernama 'aksantara' dengan password '1234'
+2. Buat sebuah database di user postgresql dengan nama bebas 'gcs'
+3. psql -U aksantara -d gcs -f Database/init.sql
+
+Setup Database alt.2
+Seperti alt.1, hanya saja ubah isi app.config['SQLALCHEMY_DATABASE_URI'] pada kode app.py menjadi 'postgresql://{nama_user}:{password}@{host}:{port}/{database}' sesuai dengan lingkungan
 
 Backend
 1. Buka temrinal di directory
@@ -24,4 +27,3 @@ Backend
 4. Aktivasi virtual enviroonment: venv\Scripts\activate
 5. Install dependencies: pip install -r requirements.txt 
 6. Luncurkan backend: python app.py
-7. Masukkan username & password postgresql, beserta nama database, sesuai dengan prompt yang muncul.
