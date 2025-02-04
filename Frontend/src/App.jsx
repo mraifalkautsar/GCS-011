@@ -1,4 +1,5 @@
 import { Route, Routes, NavLink, HashRouter } from "react-router-dom";
+import Authentication from "./pages/Authentication.jsx";
 import Navigation from "./pages/Navigation.jsx";
 import Status from "./pages/Status.jsx";
 import Weapon from "./pages/Weapon.jsx";
@@ -13,7 +14,8 @@ function App() {
       <div className="App">
         <h1>SSV Normandy Control Interface</h1>
         <ul className="header">
-            <li><NavLink to="/">Navigation</NavLink></li>
+            <li><NavLink to="/">Auth and Contact</NavLink></li>
+            <li><NavLink to="/navigation">Navigation</NavLink></li>
             <li><NavLink to="/status">Status/Monitoring</NavLink></li>
             <li><NavLink to="/weapon">Weapon and Defense Systems</NavLink></li>
             <li><NavLink to="/cargo">Cargo and Inventory</NavLink></li>
@@ -22,7 +24,8 @@ function App() {
         </ul>
         <div className="content">
         <Routes>
-            <Route path="/" element={<Navigation />} />
+            <Route path="/" element={<Authentication />} />
+            <Route path="/navigation" element={<Navigation />} />
             <Route path="/status" element={<Status />} />
             <Route path="/weapon" element={<Weapon />} />
             <Route path="/cargo" element={<Cargo />} />
