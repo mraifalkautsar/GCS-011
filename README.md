@@ -18,7 +18,7 @@ Setup Database alt.1
 3. psql -U aksantara -d gcs -f Database/init.sql
 
 Setup Database alt.2
-Seperti alt.1, hanya saja ubah isi app.config['SQLALCHEMY_DATABASE_URI'] pada kode app.py menjadi 'postgresql://{nama_user}:{password}@{host}:{port}/{database}' sesuai dengan lingkungan
+1. Seperti alt.1, hanya saja ubah isi app.config['SQLALCHEMY_DATABASE_URI'] pada kode app.py menjadi 'postgresql://{nama_user}:{password}@{host}:{port}/{database}' sesuai dengan lingkungan
 
 Backend
 1. Buka temrinal di directory
